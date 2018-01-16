@@ -12,10 +12,12 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.nearme.common.util.ClientIdUtil;
+import com.oppo.cdo.update.domain.dto.UpgradeReq;
 import com.oppo.cdo.update.domain.dto.UpgradeWrapReq;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -30,8 +32,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import io.protostuff.LinkedBuffer;
+import io.protostuff.ProtobufIOUtil;
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
+import io.protostuff.runtime.RuntimeEnv;
 import io.protostuff.runtime.RuntimeSchema;
 
 public class MainActivity extends Activity {
@@ -104,9 +108,18 @@ public class MainActivity extends Activity {
         LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);
 
 
-        return ProtostuffIOUtil.toByteArray(t, oc.a(cls), buffer);
+        try {
+            Field field = RuntimeEnv.class.getField("MORPH_NON_FINAL_POJOS");
+            field.setAccessible(true);
+            field.set(null, Boolean.valueOf(true));
+        } catch (NoSuchFieldException e1) {
+            e1.printStackTrace();
+        } catch (IllegalAccessException e1) {
+            e1.printStackTrace();
+        }
 
 
+        return ProtobufIOUtil.toByteArray(t, oc.a(cls), buffer);
     }
 
 
@@ -346,7 +359,7 @@ public class MainActivity extends Activity {
     }
 
     protected UpgradeWrapReq appList(Context context) {
-        List<UpgradeReq> arrayList = new ArrayList();
+        List arrayList = new ArrayList();
 
         UpgradeWrapReq upgradeWrapReq = new UpgradeWrapReq();
 

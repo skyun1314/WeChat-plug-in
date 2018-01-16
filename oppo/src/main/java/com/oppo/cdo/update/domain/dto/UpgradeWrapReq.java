@@ -1,6 +1,5 @@
 package com.oppo.cdo.update.domain.dto;
 
-import com.example.oppo.UpgradeReq;
 
 import java.util.List;
 

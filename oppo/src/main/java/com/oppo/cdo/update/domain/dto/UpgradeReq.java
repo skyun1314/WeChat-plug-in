@@ -1,12 +1,13 @@
-package com.example.oppo;
+package com.oppo.cdo.update.domain.dto;
 
-/**
- * Created by zk on 2018/1/15.
- */
+import io.protostuff.Tag;
 
 public class UpgradeReq {
+    @Tag(3)
     private String md5;
+    @Tag(1)
     private String pkgName;
+    @Tag(2)
     private long verCode;
 
     public String getPkgName() {

@@ -30,8 +30,11 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okio:okio:1.7.0'
 
+
     compile 'io.protostuff:protostuff-core:1.4.0'
     compile 'io.protostuff:protostuff-runtime:1.4.0'
+
+
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'

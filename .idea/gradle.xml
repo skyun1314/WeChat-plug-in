@@ -11,8 +11,8 @@
             <option value="$PROJECT_DIR$/2345" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/oppo" />
             <option value="$PROJECT_DIR$/oppo_click" />
+            <option value="$PROJECT_DIR$/oppo_maket" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

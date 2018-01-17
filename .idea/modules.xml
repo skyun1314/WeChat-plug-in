@@ -6,8 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oppo/oppo.iml" filepath="$PROJECT_DIR$/oppo/oppo.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo_click/oppo_click.iml" filepath="$PROJECT_DIR$/oppo_click/oppo_click.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oppo_maket/oppo_maket.iml" filepath="$PROJECT_DIR$/oppo_maket/oppo_maket.iml" />
     </modules>
   </component>
 </project>

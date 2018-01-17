@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AccessibilitySample</string>
+    <string name="accessibility_tip">开启辅助功能Sample</string>
+    <string name="accessibility_desc">开启辅助功能，让你的手机更智能一点</string>
+</resources>

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '25.0.3'
+    compileSdkVersion 26
+    buildToolsVersion "27.0.2"
 
 
     defaultConfig {
-        applicationId "com.example.oppo"
+        applicationId "com.example.baiwanyingxion"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -26,19 +26,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.12'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okio:okio:1.7.0'
-// https://mvnrepository.com/artifact/com.alibaba/fastjson
-    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.12'
-
-
-    compile 'io.protostuff:protostuff-core:1.4.0'
-    compile 'io.protostuff:protostuff-runtime:1.4.0'
-
-
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
 }

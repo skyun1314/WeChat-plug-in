@@ -1,1 +1,1 @@
-include ':app', ':lib', ':2345', ':oppo_maket', ':oppo_click'
+include ':app', ':lib', ':2345', ':oppo_maket', ':oppo_click', ':baiwanyingxion'

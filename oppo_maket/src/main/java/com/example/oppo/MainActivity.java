@@ -1,5 +1,6 @@
 package com.example.oppo;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -7,15 +8,19 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.nearme.common.util.ClientIdUtil;
 import com.oppo.cdo.update.domain.dto.UpgradeReq;
 import com.oppo.cdo.update.domain.dto.UpgradeWrapReq;
-import com.oppo.cdo.update.domain.dto.wg;
-import com.oppo.cdo.update.domain.dto.wi;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -97,11 +102,15 @@ public class MainActivity extends Activity {
         String update_check = "https://istore.oppomobile.com/update/v1/check";//update_check
 
 
-        byte[] bytes = serializeList(appList(this));
+       /* byte[] bytes = serializeList(appList(this));
 
         Map<String, Object> e = e(update_check);
         e.put("postxx", bytes);
-        network.okhttp_post(e);
+        network.okhttp_post(e);*/
+
+
+
+
 
     }
 

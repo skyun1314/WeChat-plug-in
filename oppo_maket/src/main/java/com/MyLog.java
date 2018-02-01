@@ -12,15 +12,23 @@ import java.util.Map;
 
 public class MyLog {
 
-
+    static String kongge_str="";
     public static String haha(Object param) {
-        String value = null;
-        if (param instanceof Integer) {
+
+
+
+        String value = "";
+        if (param ==null) {
+            value = "";
+        }
+        else  if (param instanceof Integer) {
             value = new StringBuilder(String.valueOf(((Integer) param).intValue())).toString();
         } else if (param instanceof String) {
             value = new StringBuilder(String.valueOf((String) param)).toString();
         } else if (param instanceof byte[]) {
             value = new StringBuilder(byte2hex((byte[]) param)).toString();
+        } else if (param instanceof char[]) {
+            value = new StringBuilder(new String((char[]) param)).toString();
         } else if (param instanceof Double) {
             value = new StringBuilder(String.valueOf(((Double) param).doubleValue())).toString();
         } else if (param instanceof Float) {
@@ -32,17 +40,28 @@ public class MyLog {
         } else if (param instanceof Date) {
             value = ((Date) param).toString();
         } else if (param instanceof List) {
-            value = ((List) param).toString();
-        } else if (param instanceof Map || param instanceof HashMap) {
+            String value1 = "";
+            value = "\n" + kongge_str+"(List)start--------------------------";
+          String end=  kongge_str+"(List)end--------------------------" + ((List) param).get(0).getClass()  + "\n";
+          String tmp=kongge_str;
+            for (int i = 0; i < ((List) param).size(); i++) {
+                Object o = ((List) param).get(i);
+                value1=tmp+value1+ "List:"+     "("+i+")"+       ":"+toString1(o)+"\n";
+            }
 
+            value  +=((List) param).get(0).getClass() + "\n" + value1 +end;
+
+        } else if (param instanceof Map || param instanceof HashMap) {
             Map<String, Object> param1 = ((Map<String, Object>) param);
 
             for (Map.Entry<String, Object> entry : param1.entrySet()) {
-                value+= "\nkey= " + entry.getKey() + " \n value= " + haha(entry.getValue());
+                value+= "\n"+kongge_str+"key= " + entry.getKey() + "\n"+kongge_str+"value= " + haha(entry.getValue());
             }
         } else if (param instanceof Object) {
+            String end= kongge_str+"end--------------------------" + param.getClass().toString() + "\n";
+            value = "\n" +kongge_str+ "start--------------------------";
+            value+= param.getClass().toString() + "\n" + kongge_str+toString1(param) +end;
 
-            value = "\n" + "start--------------------------" + param.toString() + "\n" + toString1(param) + "end--------------------------" + param.toString() + "\n";
 
         }
 
@@ -54,11 +73,13 @@ public class MyLog {
     public static void ShowLog2(String index, Object param) {
 
         Log.e("wodelog", "wodelog:" + index + " === " + haha(param));
+        kongge_str="";
     }
 
     public static void ShowLog1(Object param) {
 
         Log.e("wodelog", "wodelog:" + haha(param));
+        kongge_str="";
     }
 
     private static String toString1(Object clazs) {
@@ -70,36 +91,30 @@ public class MyLog {
     }
 
     private static String getParamAndValue(StringBuffer sb, Object clazs) {
+
+        kongge_str=kongge_str+"   ";
+        String tmp=kongge_str;
         if (clazs == null) {
-            sb.append("=null;");
+            sb.append("");
         } else {
             Field[] fields = clazs.getClass().getDeclaredFields();
             //  Log.e("wodelog", "getParamAndValue:" + fields.length);
+            sb.append(clazs.getClass() + ":\n "+kongge_str+"[\n");
+            String end=kongge_str+" ] \n";
             for (Field f : fields) {
                 f.setAccessible(true);
 
                 try {
                     Object haha = f.get(clazs);
 
+                    sb.append(tmp+new StringBuilder(String.valueOf(f.getType().getName())).append(" ").append(f.getName()).append("=").append(haha(haha)).append("\n").toString());
 
-                    if (isJavaClass(f.getType())) {
 
-                        if (haha instanceof byte[]) {
-                            haha = new StringBuilder(byte2hex((byte[]) haha)).toString();
-                        } else if (haha instanceof char[]) {
-                            haha = new StringBuilder(new String((char[]) haha)).toString();
-                        }
-
-                        sb.append(new StringBuilder(String.valueOf(f.getType().getName())).append(" ").append(f.getName()).append("=").append(haha).append("\n").toString());
-                    } else {
-                        sb.append(f.getType() + " : " + f.getName() + ":\n [\n");
-                        getParamAndValue(sb, haha);
-                        sb.append(" ] \n");
-                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+            sb.append(end);
         }
         return sb.toString();
     }

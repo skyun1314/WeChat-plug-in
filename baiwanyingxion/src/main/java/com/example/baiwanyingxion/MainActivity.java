@@ -63,17 +63,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Map<String, Object> mHeader = new HashMap<>();
+        final Map<String, Object> mHeader = new HashMap<>();
         mHeader.put("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.4; AOSP on HammerHead Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 SogouSearch Android1.0 version3.0 AppVersion/4901");
         mHeader.put("Accept", "*/*");
-        mHeader.put("Host", "140.143.49.31");
         mHeader.put("Referer", "http://nb.sa.sogou.com/");
         mHeader.put("Accept-Encoding", "gzip,deflate" );
+        mHeader.put("Accept-Language", ":zh-CN,en-US;q=0.8" );
         mHeader.put("X-Requested-With", "com.sogou.activity.src");
-        mHeader.put("Url", "http://140.143.49.31/api/ans2?key=xigua&wdcallback=jQuery32107269316784551625273&_=1516195");
+        mHeader.put("Url", "http://140.143.49.31/api/ans2?key=xigua&wdcallback=jQuery32107089246807154268_1516270370343&_=1516270370361");
         mHeader.put("handler",handler);
 
-        network.okhttp_get(mHeader);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                network.okhttp_get(mHeader);
+            }
+        }).start();;
+
+
 
 
     }

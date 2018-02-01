@@ -11,8 +11,7 @@ import android.os.Build.VERSION;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.oppo.acs.st.c.d;
-import com.oppo.statistics.util.SystemInfoUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -294,7 +293,7 @@ public class DeviceUtil {
     }
 
     private static File getExternalCacheDir(Context context) {
-        File file = new File(new File(new File(new File(new File(Environment.getExternalStorageDirectory(), SystemInfoUtil.SYSTEM_NAME), d.r), context.getPackageName()), "files"), Commponent.COMPONENT_CACHE);
+        File file = new File(new File(new File(new File(new File(Environment.getExternalStorageDirectory(), SystemInfoUtil.SYSTEM_NAME),"data"), context.getPackageName()), "files"), Commponent.COMPONENT_CACHE);
         if (file.exists()) {
             return file;
         }

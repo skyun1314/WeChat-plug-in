@@ -1,0 +1,33 @@
+<resources>
+    <string name="action_exclude_process">排除双开软件</string>
+    <string name="action_include_packagename">添加双开微信包名</string>
+    <string name="action_reset">重置</string>
+    <string name="action_reset_desc">"1) 开启重置
+2) 重启
+3) 关闭重置
+4) 重启"</string>
+    <string name="add">添加</string>
+    <string name="app_name">微X模块</string>
+    <string name="delete">删除</string>
+    <string name="delete_confirmation">你肯定想删除吗？</string>
+    <string name="go_to_settings">设置</string>
+    <string name="hide_icon">隐藏图标</string>
+    <string name="isreset">重置后别忘了关闭重置开关！</string>
+    <string name="keycard">发卡</string>
+    <string name="language">zh</string>
+    <string name="lauching_program">启动程序，请稍候…</string>
+    <string name="module_is_disable">模块没启动！请（重新）勾选然后重启！</string>
+    <string name="module_reboot_need">模块已更新，需要重启！</string>
+    <string name="remove_all">全部删除</string>
+    <string name="select_app">选择APP</string>
+    <string name="settings">设置：微信->我->设置->微信X模块</string>
+    <string name="show_icon">显示图标</string>
+    <string name="support">此软件是捐赠软件，可以免费使用。提供给个人使用，请勿转卖，或用于其它商业活动。如果喜欢请捐赠支持我。</string>
+    <string name="xposed_warning">Xposed框架没有安装，点击这里查询更多信息。（长按关闭测试）</string>
+
+
+
+
+
+
+</resources>

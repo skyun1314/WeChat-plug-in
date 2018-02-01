@@ -23,10 +23,13 @@ import okhttp3.Response;
 public class network {
 
 
-    public static void okhttp_get(Map<String, Object> map) {
+    public interface  response_haha{
+        void haha( Response response);
+    }
 
-        final Handler handler = (Handler) map.get("handler");
-        map.remove("handler");
+
+    public static void okhttp_get(Map<String, Object> map, final response_haha response_haha) {
+
 
         final Request.Builder builder = new Request.Builder().url((String) map.get("Url"));
         map.remove("Url");
@@ -48,7 +51,7 @@ public class network {
                 try {
                     Response response = call.execute();
                     if (response != null) {
-                        String xml = response.body().string();
+                      /*  String xml = response.body().string();
                         String str = response.networkResponse().toString();
                       //  Log.i("wodelog", "network---" + str);
                       //  Log.i("wodelog", "headers---" + response.headers().toString());
@@ -62,12 +65,11 @@ public class network {
                             }
                         } else {
                             Log.i("wodelog", xml);
-                        }
+                        }*/
+                        response_haha.haha(response);
 
-                        Message message = new Message();
-                        message.what = 1;
-                        message.obj = xml;
-                        handler.sendMessage(message);
+
+
                     } else {
                         Log.i("wodelog", "response==null");
                     }
@@ -82,19 +84,28 @@ public class network {
 
     public static void okhttp_post(Map<String, Object> map) {
 
+
         OkHttpClient okHttpClient = new OkHttpClient();
-        MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/x-protostuff; charset=UTF-8");
-
-
+        MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse(map.get("MediaType").toString());
+        map.remove("MediaType");
         Request.Builder builder = new Request.Builder().url(map.get("Url").toString()).post(RequestBody.create(MEDIA_TYPE_MARKDOWN, (byte[]) map.get("postxx")));
         map.remove("Url");
         map.remove("postxx");
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
-            builder.addHeader(entry.getKey(), entry.getValue().toString());  //将请求头以键值对形式添加，可添加多个请求头
-        }
+            Log.e("wodelog","key= " + entry.getKey() + " and value= " + entry.getValue());
+            if(entry.getValue()==null){
+                builder.removeHeader(entry.getKey());
+            }else{
+                builder.addHeader(entry.getKey(), entry.getValue().toString());  //将请求头以键值对形式添加，可添加多个请求头
+            }
 
+
+        }
         Request request = builder.build();
+
+
+
+
         final Call call = okHttpClient.newCall(request);
 
         new Thread(new Runnable() {
@@ -112,4 +123,10 @@ public class network {
         }).start();
 
     }
+
+    public static void haha(){
+
+    }
+
+
 }

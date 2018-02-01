@@ -21,6 +21,10 @@ public class AccessibilityMainActivity extends Activity implements View.OnClickL
         initView();
         AccessibilityOperator.getInstance().init(this);
         AccessibilityNormalSample.haha(this);
+
+
+
+
     }
 
     private void initView() {

@@ -49,8 +49,8 @@ public class network {
                     if (response != null) {
                         String xml = response.body().string();
                         String str = response.networkResponse().toString();
-                      //  Log.i("wodelog", "network---" + str);
-                      //  Log.i("wodelog", "headers---" + response.headers().toString());
+                        Log.i("wodelog", "network---" + str);
+                        Log.i("wodelog", "headers---" + response.headers().toString());
 
                         if (xml.length() > 4000) {
                             for (int i = 0; i < xml.length(); i += 4000) {
@@ -66,7 +66,12 @@ public class network {
                         Message message = new Message();
                         message.what = 1;
                         message.obj = xml;
-                        handler.sendMessage(message);
+
+                        if(handler!=null){
+                            handler.sendMessage(message);
+                        }
+
+
                     } else {
                         Log.i("wodelog", "response==null");
                     }

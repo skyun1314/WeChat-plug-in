@@ -1,1 +1,1 @@
-include ':app', ':lib', ':2345', ':oppo_maket', ':oppo_click', ':baiwanyingxion', ':wx_plug_in', ':kotlin', ':wx_plug_in2'
+include ':app', ':lib', ':2345', ':oppo_maket', ':oppo_click', ':baiwanyingxion', ':wx_plug_in', ':kotlin', ':wx_plug_in2', ':360', ':wx_plug_in3'

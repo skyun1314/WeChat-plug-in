@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/2345" />
+            <option value="$PROJECT_DIR$/360" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baiwanyingxion" />
             <option value="$PROJECT_DIR$/kotlin" />
@@ -17,6 +18,7 @@
             <option value="$PROJECT_DIR$/oppo_maket" />
             <option value="$PROJECT_DIR$/wx_plug_in" />
             <option value="$PROJECT_DIR$/wx_plug_in2" />
+            <option value="$PROJECT_DIR$/wx_plug_in3" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

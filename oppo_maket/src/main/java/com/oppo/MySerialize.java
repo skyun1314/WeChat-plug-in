@@ -1,5 +1,9 @@
 package com.oppo;
 
+import android.util.Log;
+
+import com.oppo.cdo.common.domain.dto.RequiredWrapDto;
+
 import java.lang.reflect.Field;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,13 +36,18 @@ public class MySerialize {
             e1.printStackTrace();
         }
 
-
         return ProtobufIOUtil.toByteArray(t, oc.a(cls), buffer);
     }
 
 
     public static <T> T deserializer(byte[] bArr, Class<T> cls, T t) {
+
+      ///  Log.setRequestHeader("wodelog",RequiredWrapDto.class.getName());
+      //  Log.setRequestHeader("wodelog",new String(bArr));
+
+
         try {
+
             ProtobufIOUtil.mergeFrom(bArr, t, oc.a(cls));
             return t;
         } catch (Throwable th) {
@@ -56,12 +65,12 @@ public class MySerialize {
         private static ConcurrentHashMap<Class<?>, Schema<?>> axxx = new ConcurrentHashMap();
 
         public static <T> Schema<T> a(Class<T> cls) {
-            Schema<T> nVar = (Schema) axxx.get(cls);
+           /* Schema<T> nVar = (Schema) axxx.get(cls);
             if (nVar != null) {
                 return nVar;
-            }
+            }*/
             Schema a = RuntimeSchema.createFrom((Class) cls);
-            axxx.put(cls, a);
+           // axxx.put(cls, analysis_home_page);
             return a;
         }
     }

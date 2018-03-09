@@ -73,4 +73,18 @@ public class BannerDto {
     public void setTime(long j) {
         this.time = j;
     }
+
+
+    @Override
+    public String toString() {
+        return "BannerDto{" +
+                "actionParam='" + actionParam + '\'' +
+                ", actionType='" + actionType + '\'' +
+                ", desc='" + desc + '\'' +
+                ", id=" + id +
+                ", image='" + image + '\'' +
+                ", time=" + time +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }

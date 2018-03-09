@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/2345/2345.iml" filepath="$PROJECT_DIR$/2345/2345.iml" />
+      <module fileurl="file://$PROJECT_DIR$/360/360.iml" filepath="$PROJECT_DIR$/360/360.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baiwanyingxion/baiwanyingxion.iml" filepath="$PROJECT_DIR$/baiwanyingxion/baiwanyingxion.iml" />
@@ -12,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/oppo_maket/oppo_maket.iml" filepath="$PROJECT_DIR$/oppo_maket/oppo_maket.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx_plug_in/wx_plug_in.iml" filepath="$PROJECT_DIR$/wx_plug_in/wx_plug_in.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx_plug_in2/wx_plug_in2.iml" filepath="$PROJECT_DIR$/wx_plug_in2/wx_plug_in2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx_plug_in3/wx_plug_in3.iml" filepath="$PROJECT_DIR$/wx_plug_in3/wx_plug_in3.iml" />
     </modules>
   </component>
 </project>

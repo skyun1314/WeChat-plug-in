@@ -24,8 +24,6 @@
             </intent-filter>
         </activity>
 
-        <provider android:name="com.oppo.cdo.update.domain.dto.wg"
-            android:authorities="com.example.oppo" />
     </application>
 
 </manifest>

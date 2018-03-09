@@ -57,14 +57,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+/*
+* 调用其他apk函数
+* */
 
 
-
-    public static String CMSform(String pack, String classZ, Context thisatv, Class<?>[] pamaer_type, Object[] pamaer, String Method_name) {
+    public static String CMSform(String packageName, String class_name, Context thisatv, String Method_name, Class<?>[] pamaer_type, Object[] pamaer) {
         String ret = null;
         try {
-            Context c = thisatv.createPackageContext(pack, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
-            Class<?> clazz = c.getClassLoader().loadClass(classZ);
+            Context c = thisatv.createPackageContext(packageName, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
+            Class<?> clazz = c.getClassLoader().loadClass(class_name);
             Method method = clazz.getMethod(Method_name, pamaer_type);
             ret = (String) method.invoke(clazz, pamaer);
         } catch (Exception e) {

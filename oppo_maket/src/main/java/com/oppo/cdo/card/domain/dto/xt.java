@@ -58,10 +58,10 @@ public class xt extends lu {
                             stringBuffer.append("[desc = ").append(bannerDto.getDesc()).append("]");
                             stringBuffer.append("[time = ").append(bannerDto.getTime()).append("]");
                             stringBuffer.append("[posInCard = ").append(i).append("]");
-                          //  je.a("banner_exp", stringBuffer.toString());
+                          //  je.analysis_home_page("banner_exp", stringBuffer.toString());
                         }
                     } else {
-                      //  je.a("banner_exp", "banner dto is null, posInCard = " + i);
+                      //  je.analysis_home_page("banner_exp", "banner dto is null, posInCard = " + i);
                     }
                 }
             }

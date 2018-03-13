@@ -11,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo_click/oppo_click.iml" filepath="$PROJECT_DIR$/oppo_click/oppo_click.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo_maket/oppo_maket.iml" filepath="$PROJECT_DIR$/oppo_maket/oppo_maket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/other_hongbao/other_hongbao.iml" filepath="$PROJECT_DIR$/other_hongbao/other_hongbao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sportedit/sportedit.iml" filepath="$PROJECT_DIR$/sportedit/sportedit.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx_plug_in/wx_plug_in.iml" filepath="$PROJECT_DIR$/wx_plug_in/wx_plug_in.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx_plug_in2/wx_plug_in2.iml" filepath="$PROJECT_DIR$/wx_plug_in2/wx_plug_in2.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx_plug_in3/wx_plug_in3.iml" filepath="$PROJECT_DIR$/wx_plug_in3/wx_plug_in3.iml" />

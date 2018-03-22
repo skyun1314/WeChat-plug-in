@@ -1,13 +1,14 @@
 package com.example.zk.myapplication.com.example.kingroot;
 
 import android.annotation.TargetApi;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-
-import java.io.File;
+import com.example.zk.myapplication.R;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class MainActivity extends AppCompatActivity {
@@ -18,23 +19,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* setContentView(R.layout.activity_main);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                Util.CopyAssets(MainActivity.this,"haha",dataDIr);
-
-                Log.e("wodelog","复制完毕");
+        setContentView(R.layout.activity_main);
 
 
-                c c = new c(MainActivity.this, new File(app_krsdk), null, null);
-                c.a();
 
-            }
-        }).start();;
-*/
+
+
+        ComponentName componetName = new ComponentName("com.example.wx_plug_in3",
+                "com.amap.searchdemo.MainActivity");
+        Intent intent = new Intent();
+        intent.setComponent(componetName);
+        startActivity(intent);
+
 
     }
 }

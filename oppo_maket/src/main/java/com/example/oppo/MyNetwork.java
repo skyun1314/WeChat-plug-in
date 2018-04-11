@@ -3,6 +3,10 @@ package com.example.oppo;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -22,6 +26,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Call;
+import okhttp3.FormBody;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -97,11 +102,12 @@ public class MyNetwork {
 
 
         OkHttpClient okHttpClient = new OkHttpClient();
-        MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse(map.get("MediaType").toString());
+        MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse(map.get("MediaType").toString());///这是 Content-Type  请求头
         map.remove("MediaType");
-        Request.Builder builder = new Request.Builder().url(map.get("Url").toString()).post(RequestBody.create(MEDIA_TYPE_MARKDOWN, (byte[]) map.get("postxx")));
 
 
+
+        Request.Builder builder = new Request.Builder().url(map.get("Url").toString()).post(RequestBody.create(MEDIA_TYPE_MARKDOWN,(String) map.get("postxx")));
         map.remove("Url");
         map.remove("postxx");
         for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -126,8 +132,20 @@ public class MyNetwork {
                 try {
                     Response response = call.execute();
 
-                    Log.e("wodelog", response.body().string());
-                } catch (IOException e) {
+                    String string = response.body().string();
+
+
+                   /* JSONObject jsonObject=new JSONObject(string);
+                    JSONArray jsonArray = (JSONArray) jsonObject.get("data");
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject o = (JSONObject) jsonArray.get(i);
+                        Log.e("wodelog", "结果："+o.get("username")+" "+o.get("start")+" "+o.get("arrive")+" "+o.get("mobile"));
+                    }*/
+
+                   Log.e("wodelog",string);
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 

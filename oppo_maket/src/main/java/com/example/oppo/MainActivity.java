@@ -1,36 +1,21 @@
 package com.example.oppo;
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.oppo.MySerialize;
-import com.oppo.cdo.card.domain.dto.AppListCardDto;
-import com.oppo.cdo.card.domain.dto.BannerCardDto;
-import com.oppo.cdo.card.domain.dto.BannerDto;
-import com.oppo.cdo.card.domain.dto.NavCardDto;
-import com.oppo.cdo.card.domain.dto.ViewLayerWrapDto;
 import com.oppo.cdo.card.domain.dto.c;
-import com.oppo.cdo.card.domain.dto.search.SearchCardDto;
-import com.oppo.cdo.card.domain.dto.xt;
 import com.oppo.cdo.common.domain.dto.ResourceDto;
-import com.oppo.lr;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import okhttp3.FormBody;
 
 public class MainActivity extends Activity {
 
@@ -61,6 +46,34 @@ public class MainActivity extends Activity {
 
     public List<ResourceDto> search_resourceDto=new ArrayList<>();
 
+
+
+    private String MD5(String s) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] bytes = md.digest(s.getBytes("utf-8"));
+            return toHex(bytes);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static String toHex(byte[] bytes) {
+
+        final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
+        StringBuilder ret = new StringBuilder(bytes.length * 2);
+        for (int i=0; i<bytes.length; i++) {
+            ret.append(HEX_DIGITS[(bytes[i] >> 4) & 0x0f]);
+            ret.append(HEX_DIGITS[bytes[i] & 0x0f]);
+        }
+        return ret.toString();
+    }
+
+
+
+
+
     public static String getRomName() {
         String COLOR_OS_ROM_NAME = null;
         if (TextUtils.isEmpty(COLOR_OS_ROM_NAME)) {
@@ -85,10 +98,86 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        Log.e("wodelog", Build.ID);
+
+        Map<String, Object> map =new HashMap<String, Object>();
+        map.put("Charset","UTF-8");
+        map.put("Content-Encoding","gzip");
+        map.put("Accept-Encoding","gzip");
+        map.put("User-Agent","Dalvik/1.6.0 (Linux; U; Android 4.4.4; AOSP on HammerHead Build/KTU84P)");
+
+
+
+
+
+
+
+
+        FormBody build = new FormBody.Builder()
+                .add("channelCode", 15+"")
+                .add("cid", "5c0a5496119b053b9dd0c4ca14a6fdb8")
+                .add("clientId", "ffffffff-e3a8-946a-1d17-6294213f44dd")
+                .add("clientSign", 2+"")
+                .add("clientVersion", 5300+"")
+                .add("osVersion", "4.4.4")
+                .add("phoneType",  "AOSP+on+HammerHead" )
+                .add("sign","92d24826558e89637115c5ace569e479")
+                .add("ticket", "04b433c86315e6fc6baa29ce433808f0")
+                .add("ttkn","2018.4.9++14%3A50" )
+                .add("userId", "305223")
+                .build();
+
+
+
+
+        String parm="channelCode=15&cid=5c0a5496119b053b9dd0c4ca14a6fdb8&clientId=ffffffff-e3a8-946a-1d17-6294213f44dd&clientSign=2&clientVersion=5300&osVersion=4.4.4&phoneType=AOSP+on+HammerHead&sign=92d24826558e89637115c5ace569e479&ticket=04b433c86315e6fc6baa29ce433808f0&ttkn=2018.4.9++14%3A50&userId=305223";
+
+
+
+
+        map.put("postxx",parm);
+        map.put("MediaType","application/x-www-form-urlencoded; charset=UTF-8");//这是 Content-Type  请求头
+        map.put("Url","http://www.teyuntong.cn//plat/plat/user/simulatedLogin");
+
+        MyNetwork.okhttp_post(map);
+
+
+
+
+
+
+/*        Log.e("wodelog", Build.ID);
         Log.e("wodelog", Build.BRAND);
         Log.e("wodelog", Build.MODEL);
-        Log.e("wodelog", getRomName());
+        Log.e("wodelog", getRomName());*/
+
+        int page = 1;
+
+String token="e99c0357160e9954bd511c91995663df";
+
+
+
+/*
+e99c0357160e9954bd511c91995663df#page=2#timestamp=1522335057#token=e99c0357160e9954bd511c91995663df#version=1.3.6#1522335057
+
+
+        Connection: keep-alive
+        Content-Length: 123*/
+/*
+        for (int i = 1; i < 10; i++) {
+            Map<String, Object> response_interface2 = new HashMap<>();
+      //  response_interface2.put("MediaType", "text");
+        response_interface2.put("Url", "https://api.zyb56.com/index.php?s=app/ShipperCar/get_car_list");
+   *//*     response_interface2.put("Host", "api.zyb56.com");
+        response_interface2.put("Connection", "keep-alive");
+        response_interface2.put("Content-Length", "123");
+        response_interface2.put("Accept", "application/json");
+      response_interface2.put("Origin", "file://");
+        response_interface2.put("X-Requested-With", "XMLHttpRequest");
+        response_interface2.put("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.4; AOSP on HammerHead Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 Html5Plus/1.0");
+        response_interface2.put("Content-Type", "application/x-www-form-urlencoded");
+       // response_interface2.put("Accept-Encoding", "gzip,deflate");
+       response_interface2.put("Accept-Language", "zh-CN,en-US;q=0.8");
+        response_interface2.put("Cookie", "PHPSESSID=lr74ddhh0ftod0gnqf2lthlti7");*//*
 
 
 
@@ -96,6 +185,31 @@ public class MainActivity extends Activity {
 
 
 
+
+
+                page=i;
+            Log.e("wodelog","page:"+page);
+                long timestamp = System.currentTimeMillis()/1000;
+                String signature=MD5(token+"#page="+page+"#timestamp="+timestamp+"#token="+token+"#version=1.3.6#"+timestamp).toLowerCase();
+            //   response_interface2.put("postxx", ("page="+page+"&token="+token+"&version=1.3.6&timestamp="+timestamp+"&signature="+signature+"").toString());
+
+            FormBody build = new FormBody.Builder()
+                    .add("page", page+"")
+                    .add("token", token)
+                    .add("version", "1.3.6")
+                    .add("timestamp", timestamp+"")
+                    .add("signature", signature)
+                    .build();
+
+            response_interface2.put("postxx",build);
+
+
+
+            MyNetwork.okhttp_post(response_interface2);
+            Log.e("wodelog"," " );
+        }*/
+    }
+/*
         listapps=new ArrayList();
         try {
             InputStream instream = getAssets().open("haha.txt");
@@ -128,13 +242,13 @@ public class MainActivity extends Activity {
 
 
 
-              /*  final shebei shebei1=new shebei(
+              *//*  final shebei shebei1=new shebei(
                         "Android",
                         "0",OppoNetworks.getCarrierName(OppoNetworks.netname.中国电信),
                         "359125053640852",    "AOSP on HammerHead",1920,1080,
                         "aosp_hammerhead-userdebug 4.4.4 KTU84P eng.zk.20170810.152219 test-keys",
                         "4.4.4",19, "WIFI","wify","KTU84P"
-                );*/
+                );*//*
 
 
 
@@ -300,9 +414,9 @@ public class MainActivity extends Activity {
 
                 MyNetwork.response_interface response_interface1 = new MyNetwork.response_interface() {//首页数据解析
 
-                    /**
+                    *//**
                      * @param response
-                     */
+                     *//*
                     @Override
                     public Object do_response(Response response) {
 
@@ -409,17 +523,17 @@ public class MainActivity extends Activity {
 
 
 
-/*
+*//*
                     MyNetwork.okhttp_post(OppoNetworks.ClientPageVisit_header(shebei));
-                    MyNetwork.okhttp_post(OppoNetworks.ClientStartUpload_header(shebei));*/
+                    MyNetwork.okhttp_post(OppoNetworks.ClientStartUpload_header(shebei));*//*
 
 
 
                     MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,search), response_interface2);
 
-        /*            MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword("W")), response_interface2);
+        *//*            MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword("W")), response_interface2);
                     MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword("WW")), response_interface2);
-                    */
+                    *//*
                     MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword(shebei.key_word)), response_interface2);
                     MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword_ok(shebei.key_word)), response_interface4);
                     MyNetwork.okhttp_get(OppoNetworks.setRequestHeader(shebei,OppoNetworks.serch_keyword_ok(shebei.key_word)), response_interface4);
@@ -460,7 +574,7 @@ public class MainActivity extends Activity {
 
 
 
-    }
+    }*/
 
 
 }

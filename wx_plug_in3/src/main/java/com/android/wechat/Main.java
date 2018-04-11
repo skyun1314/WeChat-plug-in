@@ -8,12 +8,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -150,6 +151,14 @@ public class Main implements IXposedHookLoadPackage {
                         super.beforeHookedMethod(param);
                         ContentValues contentValues = (ContentValues) param.args[2];
                         String message1 = (String) param.args[0];
+
+
+
+                        Throwable wodelog = new Throwable("wodelog");
+                        StackTraceElement[] stackTrace = wodelog.getStackTrace();
+                        for (int i = 0; i < stackTrace.length; i++) {
+                                Log.e(wodetag,"stackTrace"+i+" :"+stackTrace[i].toString());
+                        }
 
 
                         show_msg(message1, contentValues, "insertWithOnConflict");
@@ -298,7 +307,10 @@ public static String packageNmae="com.example.wx_plug_in3";
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 ClassLoader cl = ((Context) param.args[0]).getClassLoader();
 
-
+                hookviodPath(cl);
+                strtactivity(cl);
+                hookMvoid_essage_send(cl);
+                hookMessage_send(cl);
                 hook_launcherUiActivity(cl);//拿到一直存在的activity去打开红包,和增加入口按钮
                 hook_RemittanceDetailUI( cl);//打印跳转到红包页面接收的参数
                 hook_SQLiteDatabase( cl);
@@ -720,6 +732,201 @@ public static String packageNmae="com.example.wx_plug_in3";
             Log.e(wodetag," Frend_photo :"+e.toString());
             e.printStackTrace();
         }
+
+
+    }
+
+
+    public static void strtactivity(ClassLoader cl){//想测试公众号跳转页面
+
+        Class<?> aClass = null;
+        try {
+            aClass = cl.loadClass("com.tencent.mm.ui.MMFragmentActivity");
+
+
+
+            XposedHelpers.findAndHookMethod(aClass, "startActivityForResult", Intent.class,int.class,new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+                }
+
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+
+                    Intent intent= (Intent) param.args[0];
+                    Bundle bundle = intent.getExtras();
+                    Set<String> keySet = bundle.keySet();  //获取所有的Key,
+
+                    for(String key : keySet){  //bundle.get(key);来获取对应的value
+                        Object o = bundle.get(key);
+                        Log.e(wodetag,"strtactivity-----key : "+key+"-----"+"value : "+o.toString());
+
+                    }
+
+                }
+            });
+        } catch (ClassNotFoundException e) {
+            Log.e(wodetag," strtactivity :"+e.toString());
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+    public static void hookMessage_send(final ClassLoader cl){//想拦截发文本消息
+
+        Class<?> aClass = null;
+        try {
+            aClass = cl.loadClass("com.tencent.mm.ui.chatting.al");
+
+
+
+            XposedHelpers.findAndHookMethod(aClass, "Dl", String.class,new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+                }
+
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+
+                    Object xuQ = XposedHelpers.getObjectField(param.thisObject, "xuQ");
+
+
+                    for (int i = 0; i < 4; i++) {
+                        XposedHelpers.callMethod(xuQ,"dk",i+"",0);
+                    }
+                }
+            });
+        } catch (ClassNotFoundException e) {
+            Log.e(wodetag," hookMessage_send :"+e.toString());
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    public static void hookviodPath(final ClassLoader cl){//想拦截发文本消息
+
+        Class<?> aClass = null;
+        try {
+            aClass = cl.loadClass("com.tencent.mm.modelvoice.q");
+
+
+
+            XposedHelpers.findAndHookMethod(aClass, "getFullPath", String.class,new XC_MethodHook() {
+
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+                    Log.e(wodetag," hookviodPath :"+param.args[0]);
+
+                    Throwable wodelog = new Throwable("wodelog");
+                    StackTraceElement[] stackTrace = wodelog.getStackTrace();
+                    for (int i = 0; i < stackTrace.length; i++) {
+                    //    Log.e(wodetag,"stackTrace"+i+" :"+stackTrace[i].toString());
+                    }
+
+
+                }
+            });
+        } catch (ClassNotFoundException e) {
+            Log.e(wodetag," hookviodPath :"+e.toString());
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+    public static void hookMvoid_essage_send(final ClassLoader cl){//想拦截发语音消息
+
+        Class<?> aClass = null;
+        try {
+            aClass = cl.loadClass("com.tencent.mm.pluginsdk.ui.chat.ChatFooter$8");
+
+
+
+            XposedHelpers.findAndHookMethod(aClass, "onTouch", View.class, MotionEvent.class,new XC_MethodHook() {
+
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+
+
+                    Object uwL = XposedHelpers.getObjectField(param.thisObject, "uwL");
+                    Object uvP = XposedHelpers.getObjectField(uwL, "uvP");
+  /*
+                    XposedHelpers.findAndHookMethod(uvP.getClass(), "aTN", new XC_MethodReplacement() {
+                        @Override
+                        protected Object
+                        replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+                            return false;
+                        }
+                    });
+
+
+                 XposedHelpers.findAndHookMethod(uvP.getClass(), "aTM", new XC_MethodReplacement() {
+                        @Override
+                        protected Object
+                        replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+                            return false;
+                        }
+                    });
+
+                    XposedHelpers.findAndHookMethod(uvP.getClass(), "aTK", new XC_MethodReplacement() {
+                        @Override
+                        protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+                            return false;
+                        }
+                    });*/
+                  /*  Class<?>  ChatFooter = cl.loadClass("com.tencent.mm.pluginsdk.ui.chat.ChatFooter");
+                    XposedHelpers.findAndHookMethod(ChatFooter,"z",ChatFooter,new XC_MethodReplacement() {
+                        @Override
+                        protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+                            return null;
+                        }
+                    });*/
+
+                }
+
+
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+                    MotionEvent motionEvent= (MotionEvent) param.args[1];
+                   // Log.e(wodetag,"onTouch事件:"+motionEvent.getAction());
+                    if(motionEvent.getAction()==1){
+                        Object uwL = XposedHelpers.getObjectField(param.thisObject, "uwL");
+                        Object uvP = XposedHelpers.getObjectField(uwL, "uvP");
+                        Object lSY = XposedHelpers.getObjectField(uwL, "lSY");
+
+                        Log.e(wodetag,"查看语音发送时候的一个变量判断1:"+uvP+":"+lSY);
+
+                      //  Class<?>  ChatFooter = cl.loadClass("com.tencent.mm.pluginsdk.ui.chat.ChatFooter");
+                        //XposedHelpers.callStaticMethod(ChatFooter,"z",uwL);
+
+
+                    }
+
+                }
+
+
+            });
+        } catch (ClassNotFoundException e) {
+            Log.e(wodetag," hookMessage_send :"+e.toString());
+            e.printStackTrace();
+        }
+
 
 
     }

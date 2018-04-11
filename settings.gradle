@@ -1,1 +1,1 @@
-include ':lib', ':2345', ':oppo_maket', ':oppo_click', ':baiwanyingxion', ':wx_plug_in3', ':wangxiaohao'
+include ':wx_plug_in3'

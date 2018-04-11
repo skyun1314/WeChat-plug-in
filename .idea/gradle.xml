@@ -8,12 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/2345" />
-            <option value="$PROJECT_DIR$/baiwanyingxion" />
-            <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/oppo_click" />
-            <option value="$PROJECT_DIR$/oppo_maket" />
-            <option value="$PROJECT_DIR$/wangxiaohao" />
             <option value="$PROJECT_DIR$/wx_plug_in3" />
           </set>
         </option>

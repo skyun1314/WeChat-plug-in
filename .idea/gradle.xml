@@ -9,18 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/2345" />
-            <option value="$PROJECT_DIR$/360" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baiwanyingxion" />
-            <option value="$PROJECT_DIR$/kotlin" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/oppo_click" />
             <option value="$PROJECT_DIR$/oppo_maket" />
-            <option value="$PROJECT_DIR$/other_hongbao" />
-            <option value="$PROJECT_DIR$/sportedit" />
             <option value="$PROJECT_DIR$/wangxiaohao" />
-            <option value="$PROJECT_DIR$/wx_plug_in" />
-            <option value="$PROJECT_DIR$/wx_plug_in2" />
             <option value="$PROJECT_DIR$/wx_plug_in3" />
           </set>
         </option>

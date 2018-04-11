@@ -35,8 +35,8 @@ dependencies {
     })
     compile 'com.github.smart-fun:XmlToJson:1.4.4'
     provided files('src/main/lib/XposedBridgeApi-54.jar')
-   /* compile 'com.amap.api:location:latest.integration'
-    compile 'com.amap.api:search:latest.integration'
-    compile 'com.amap.api:3dmap:latest.integration'*/
-    compile 'com.android.support:design:26.+'
+    compile 'com.amap.api:location:3.8.0'
+    compile 'com.amap.api:search:5.7.0'
+    compile 'com.amap.api:3dmap:6.0.1'
+    compile 'com.android.support:design:26.1.0'
 }

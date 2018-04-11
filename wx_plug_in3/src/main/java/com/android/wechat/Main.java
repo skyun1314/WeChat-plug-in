@@ -376,8 +376,8 @@ public static String packageNmae="com.example.wx_plug_in3";
             protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
                 super.beforeHookedMethod(param);
                 Menu menu= (Menu) param.args[0];
-                Log.e(wodetag,"增加微X模块按钮");
-                menu.add(0,3,0,"微X模块");
+                Log.e(wodetag,"增加地图按钮");
+                menu.add(0,3,0,"选择位置");
                 menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {

@@ -1,6 +1,11 @@
 微信6.6.1 xposed模块
 ====
 
+下载地址
+====
+https://github.com/skyun1314/WeChat-plug-in/tree/master/wx_plug_in3/wx_plug_in3-release.apk
+
+
 function
 ==== 
 

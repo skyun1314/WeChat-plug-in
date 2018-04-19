@@ -5,6 +5,18 @@
 ====
 https://github.com/skyun1314/WeChat-plug-in/tree/master/wx_plug_in3/wx_plug_in3-release.apk
 
+function
+==== 
+
+ * 1自动回复  
+ * 2防撤回  
+ * 3抢红包  
+ * 4骰子作弊 
+ * 5模拟位置  
+ * 6步数最高   
+ * 7微信跳一跳助手
+
+
 ScreenShots
 ====
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/1.jpg)
@@ -16,17 +28,7 @@ ScreenShots
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/7.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/8.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/9.jpg)
-
-function
-==== 
-
- * 1自动回复  
- * 2防撤回  
- * 3抢红包  
- * 4骰子作弊 
- * 5模拟位置  
- * 6步数最高   
- * 7微信跳一跳助手 
+ 
 
 
 Hope

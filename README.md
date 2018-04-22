@@ -5,7 +5,7 @@ Version update
 ====
 更换高德地图为百度地图，很大的缩小了包的体积。修复了自动回复出现的异常，修复了发送语音显示没有发送出去的异常。
 
-https://github.com/skyun1314/WeChat-plug-in/releases/download/1.3/wx_plug_in3-release.apk
+https://github.com/skyun1314/WeChat-plug-in/releases/download/1.4/wx_plug_in3-release.apk
 
 function
 ==== 

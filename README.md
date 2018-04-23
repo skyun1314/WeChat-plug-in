@@ -28,7 +28,7 @@ ScreenShots
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/5.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/6.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/7.jpg)
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/8.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/setp.png)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/9.jpg)
  
 

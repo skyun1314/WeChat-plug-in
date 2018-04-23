@@ -22,7 +22,7 @@ function
 ScreenShots
 ====
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/1.jpg)
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/2.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/chehui.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/3.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/4.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/5.jpg)

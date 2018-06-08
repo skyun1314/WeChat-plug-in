@@ -24,10 +24,10 @@ function
 
 ScreenShots
 ====
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/11.jpg)
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/22.jpg)
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/33.jpg)
-![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/44.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/11.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/22.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/33.jpg)
+![image](https://github.com/skyun1314/AesTest/blob/master/44.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/1.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/chehui.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/3.jpg)

@@ -1,11 +1,11 @@
-微信6.6.1 xposed模块
+畅玩微信 xposed模块
 ====
 
 Version update
 ====
-增加了朋友圈转发。群发助手，修改了红包领取模式，增加了红包 自动回复个性化设置。里面还有隐藏功能。一键添加群好友。修复了一些问题
+适配了最新版6.6.7
 
-https://github.com/skyun1314/WeChat-plug-in/releases/download/1.5/wx_plug_in3-debug.apk
+https://github.com/skyun1314/WeChat-plug-in/releases/download/1.6/wx_plug_in3-debug2.apk
 
 function
 ==== 

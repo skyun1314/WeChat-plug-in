@@ -4,6 +4,7 @@
 Version update
 ====
 适配了最新版6.6.7
+
 (注意⚠️)通过 VirtualXposed 使用本软件的朋友 从微信里面设置各种开关不管用，需要在 VirtualXposed外面 也安装本软件进入设置
 
 https://github.com/skyun1314/WeChat-plug-in/releases/download/1.7/wx_plug_in3-debug.apk

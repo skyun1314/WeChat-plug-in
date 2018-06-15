@@ -1,4 +1,4 @@
-畅玩微信 xposed模块
+畅玩微信 xposed模块(只支持微信6.6.1和6.6.7其他版本没有做适配)
 ====
 
 Version update

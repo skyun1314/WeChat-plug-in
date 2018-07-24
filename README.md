@@ -7,10 +7,16 @@ Version update
 
 (注意⚠️)通过 VirtualXposed 使用本软件的朋友 从微信里面设置各种开关不管用，需要在 VirtualXposed外面 也安装本软件进入设置
 
-https://github.com/skyun1314/WeChat-plug-in/releases/download/1.7/wx_plug_in3-debug.apk
+https://github.com/skyun1314/WeChat-plug-in/releases/download/1.8/wx_plug_in3-release.apk
 
 function
 ==== 
+ * 兼容 vaxposed
+ * 好友分组(群也可以一起分进去)
+ * 自定义地区
+ * 屏蔽群消息（红包不会屏蔽）
+ * 自己的群 进人自动欢迎，移除群聊提示
+
 
  * 1自动回复(可设置指定人指定群自定义模式) 
  * 2防撤回  

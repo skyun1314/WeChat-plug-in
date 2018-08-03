@@ -25,10 +25,6 @@
 
 ScreenShots
 ====
-![image](https://github.com/skyun1314/AesTest/blob/master/11.png)
-![image](https://github.com/skyun1314/AesTest/blob/master/22.png)
-![image](https://github.com/skyun1314/AesTest/blob/master/33.png)
-![image](https://github.com/skyun1314/AesTest/blob/master/44.png)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/1.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/chehui.jpg)
 ![image](https://github.com/skyun1314/AesTest/blob/master/screenshots/3.jpg)
